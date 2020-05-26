@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [Regression suite 1]">
+  <parameter name="platform" value="windows"/>
+  <test name="Regression test 1(failed)">
+    <classes>
+      <class name="automation.tests.PdpChartsPageTest">
+        <methods>
+          <include name="PdpPage"/>
+          <include name="getEnviromentReady"/>
+          <include name="readPropertiesData"/>
+          <include name="afterClass"/>
+          <include name="quitBrowser"/>
+          <include name="verifyReviewFlagColor"/>
+          <include name="validateExtentReportFile"/>
+        </methods>
+      </class> <!-- automation.tests.PdpChartsPageTest -->
+      <class name="automation.tests.PdpEncountersPageTest">
+        <methods>
+          <include name="getEnviromentReady"/>
+          <include name="readPropertiesData"/>
+          <include name="afterClass"/>
+          <include name="quitBrowser"/>
+          <include name="verifyQaCompleteEncounter"/>
+          <include name="verifyQAOptions"/>
+          <include name="validateExtentReportFile"/>
+          <include name="PdpEncountersPage"/>
+        </methods>
+      </class> <!-- automation.tests.PdpEncountersPageTest -->
+    </classes>
+  </test> <!-- Regression test 1(failed) -->
+</suite> <!-- Failed suite [Regression suite 1] -->

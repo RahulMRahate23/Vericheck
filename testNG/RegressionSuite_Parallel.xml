@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RegressionSuite_Parallel">
+	
+<suite-files>
+    <suite-file path="RegresionSuite_ChartPdpTests.xml"></suite-file>
+    <suite-file path="RegresionSuite_EncounterPdpTests.xml"></suite-file>
+    <suite-file path="RegresionSuite_EzChartFunctionalityTests.xml"></suite-file>
+    <suite-file path="RegresionSuite_ReportsCreatorTests.xml"></suite-file>    
+    <suite-file path="RegresionSuite_ReportsTests.xml"></suite-file>
+    <suite-file path="RegresionSuite_SearchTests.xml"></suite-file>    
+    <suite-file path="RegresionSuite_SettingsTests.xml"></suite-file>    
+    <suite-file path="RegresionSuite_StatusQaCompleteTests.xml"></suite-file>    
+    <suite-file path="RegresionSuite_WorklistCreatorTests.xml"></suite-file>
+    <suite-file path="RegresionSuite_WorklistEditTests.xml"></suite-file>
+    <suite-file path="RegresionSuite_WorklistViewerTests.xml"></suite-file>
+    <suite-file path="ModifiedWLCDependantTCs.xml"></suite-file>
+</suite-files>
+	
+</suite>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [Demo suite 1]">
+  <test name="Demo test 1(failed)">
+    <classes>
+      <class name="automation.tests.loginTests.LoginPageTests">
+        <methods>
+          <include name="getEnviromentReady"/>
+          <include name="readPropertiesData"/>
+          <include name="LoginPage"/>
+          <include name="afterClass"/>
+          <include name="loginTest"/>
+          <include name="captureScreenshot"/>
+          <include name="validateExtentReportFile"/>
+        </methods>
+      </class> <!-- automation.tests.loginTests.LoginPageTests -->
+    </classes>
+  </test> <!-- Demo test 1(failed) -->
+</suite> <!-- Failed suite [Demo suite 1] -->

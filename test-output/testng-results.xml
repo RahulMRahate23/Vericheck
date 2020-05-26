@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Username entered.]]>
+    </line>
+    <line>
+      <![CDATA[Password entered.]]>
+    </line>
+    <line>
+      <![CDATA[Click on Login Button.]]>
+    </line>
+    <line>
+      <![CDATA[Click on Transaction Tab.]]>
+    </line>
+    <line>
+      <![CDATA[Click on Create Transaction Button.]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="78375" started-at="2020-05-22T07:37:12Z" finished-at="2020-05-22T07:38:30Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="78375" started-at="2020-05-22T07:37:12Z" finished-at="2020-05-22T07:38:30Z">
+      <class name="booksTestCase.Demo">
+        <test-method status="PASS" signature="validateExtentReportFile()[pri:0, instance:booksTestCase.Demo@dd8ba08]" name="validateExtentReportFile" is-config="true" duration-ms="8" started-at="2020-05-22T13:07:12Z" finished-at="2020-05-22T13:07:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateExtentReportFile -->
+        <test-method status="PASS" signature="readPropertiesData(org.testng.ITestContext)[pri:0, instance:booksTestCase.Demo@dd8ba08]" name="readPropertiesData" is-config="true" duration-ms="160" started-at="2020-05-22T13:07:12Z" finished-at="2020-05-22T13:07:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5c0f79f0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readPropertiesData -->
+        <test-method status="PASS" signature="chartPdpPatientDetailsPage()[pri:0, instance:booksTestCase.Demo@dd8ba08]" name="chartPdpPatientDetailsPage" is-config="true" duration-ms="9" started-at="2020-05-22T13:07:12Z" finished-at="2020-05-22T13:07:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- chartPdpPatientDetailsPage -->
+        <test-method status="FAIL" signature="verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places(java.lang.reflect.Method)[pri:4, instance:booksTestCase.Demo@dd8ba08]" name="verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places" duration-ms="76744" started-at="2020-05-22T13:07:12Z" finished-at="2020-05-22T13:08:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void booksTestCase.Demo.verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places(java.lang.reflect.Method) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Cannot locate element with text: WEB
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'SILICUS379', ip: '192.168.0.107', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate element with text: WEB
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'SILICUS379', ip: '192.168.0.107', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:151)
+	at common.BrowserActions.selectDropdownByVisibleText(BrowserActions.java:53)
+	at booksMerchant.TransactionPage.clickAndSelectStandardEntryClassDD(TransactionPage.java:178)
+	at booksTestCase.Demo.verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places(Demo.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+            <line>
+              <![CDATA[Username entered.]]>
+            </line>
+            <line>
+              <![CDATA[Password entered.]]>
+            </line>
+            <line>
+              <![CDATA[Click on Login Button.]]>
+            </line>
+            <line>
+              <![CDATA[Click on Transaction Tab.]]>
+            </line>
+            <line>
+              <![CDATA[Click on Create Transaction Button.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places -->
+        <test-method status="PASS" signature="captureScreenshot(org.testng.ITestResult)[pri:0, instance:booksTestCase.Demo@dd8ba08]" name="captureScreenshot" is-config="true" duration-ms="1425" started-at="2020-05-22T13:08:29Z" finished-at="2020-05-22T13:08:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places status=FAILURE method=Demo.verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places(java.lang.reflect.Method)[pri:4, instance:booksTestCase.Demo@dd8ba08] output=Username entered.]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- captureScreenshot -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:booksTestCase.Demo@dd8ba08]" name="afterClass" is-config="true" duration-ms="2" started-at="2020-05-22T13:08:30Z" finished-at="2020-05-22T13:08:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- booksTestCase.Demo -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
