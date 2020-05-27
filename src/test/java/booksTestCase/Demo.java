@@ -23,25 +23,25 @@ public class Demo extends BaseTest {
 		parent = ExtentTestManager.getTest();
 	}
 	
-	@Test(priority = 4)
-	public void verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places(Method method) throws Throwable {
+	@Test(priority = 5)
+	public void verifTransactionCreatedSuccessfully() throws Throwable {
 		getEnviromentDetailsReady(properties.getProperty("BookbaseSITURL"));
-		child = ExtentManager.getReporter().startTest("Transaction - validation- Verify Amount field accepts only positive and decimal number up to 2 places.");
+		child = ExtentManager.getReporter().startTest("Transaction - Amount- Transaction Created Successfully.");
 		parent.appendChild(child);
 
 		new LoginPage(getEventDriver(), getHandler()).user_login_into_appliction_with_username_and_password(properties.getProperty("bookesMerchant"),
 				properties.getProperty("password"), child);
 		transactionPage = new TransactionPage(getEventDriver(), getHandler());
 		
-		System.out.println("******Transaction - validation- Verify Amount field accepts only positive and decimal number up to 2 places.*********");
+		System.out.println("******Transaction - Amount- Transaction Created Successfully.*********");
 		transactionPage.clickOnTransactionTab(child);
 		transactionPage.clickOnCreateTransactionButton(child);
 		transactionPage.clickAndSelectStandardEntryClassDD("WEB", child);
 		transactionPage.clickAndSelectTransactionTypeDD("Credit", child);
 		transactionPage.clickAndSelectExistingCustomerDD("CUS_5756076821937561609756412313", child);
-		transactionPage.enterAmount("23.7889", child);
+		transactionPage.enterAmount("50", child);
 		transactionPage.enterDescription("validation", child);
 		transactionPage.clickOnSubmitButton(child);
-		Assert.assertTrue(transactionPage.verifAmountvalidation(child));
+		Assert.assertTrue(transactionPage.verifTransactionCreatedSuccessfully(child));
 	}
 }

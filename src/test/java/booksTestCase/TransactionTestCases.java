@@ -24,7 +24,7 @@ public class TransactionTestCases extends BaseTest {
 	}
 	
 	@Test(priority = 1)
-	public void verifyWithRoutingNumberWithLessThan9Digits(Method method) throws Throwable {
+	public void verifyAmountIsMandatoryField(Method method) throws Throwable {
 		getEnviromentDetailsReady(properties.getProperty("BookbaseSITURL"));
 		child = ExtentManager.getReporter().startTest("Transaction - validation- Verify Amount is mandatory.");
 		parent.appendChild(child);
@@ -83,6 +83,28 @@ public class TransactionTestCases extends BaseTest {
 		transactionPage.clickAndSelectTransactionTypeDD("Credit", child);
 		transactionPage.clickAndSelectExistingCustomerDD("CUS_5756076821937561609756412313", child);
 		transactionPage.enterAmount("7,988,888,88889", child);
+		transactionPage.enterDescription("validation", child);
+		transactionPage.clickOnSubmitButton(child);
+		Assert.assertTrue(transactionPage.verifAmountvalidation(child));
+	}
+	
+	@Test(priority = 4)
+	public void verifAmountFieldAcceptsOnlyPositiveAndDecimalNumberUpTo2Places(Method method) throws Throwable {
+		getEnviromentDetailsReady(properties.getProperty("BookbaseSITURL"));
+		child = ExtentManager.getReporter().startTest("Transaction - validation- Verify Amount field accepts only positive and decimal number up to 2 places.");
+		parent.appendChild(child);
+
+		new LoginPage(getEventDriver(), getHandler()).user_login_into_appliction_with_username_and_password(properties.getProperty("bookesMerchant"),
+				properties.getProperty("password"), child);
+		transactionPage = new TransactionPage(getEventDriver(), getHandler());
+		
+		System.out.println("******Transaction - validation- Verify Amount field accepts only positive and decimal number up to 2 places.*********");
+		transactionPage.clickOnTransactionTab(child);
+		transactionPage.clickOnCreateTransactionButton(child);
+		transactionPage.clickAndSelectStandardEntryClassDD("WEB", child);
+		transactionPage.clickAndSelectTransactionTypeDD("Credit", child);
+		transactionPage.clickAndSelectExistingCustomerDD("CUS_5756076821937561609756412313", child);
+		transactionPage.enterAmount("23.7889", child);
 		transactionPage.enterDescription("validation", child);
 		transactionPage.clickOnSubmitButton(child);
 		Assert.assertTrue(transactionPage.verifAmountvalidation(child));

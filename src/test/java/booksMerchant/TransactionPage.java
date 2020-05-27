@@ -72,6 +72,12 @@ public class TransactionPage extends BasePage {
 	@FindBy(xpath = "//*[@formcontrolname='amount']/following::span[3]")
 	WebElement GetAmountErrorMessage;
 	
+	@FindBy(xpath = "//*[@class='row headingacl newpadclass']/div[1]")
+	WebElement GetSuccessfullyMessage;
+	
+	@FindBy(xpath = "//*[@class='row headingacl newpadclass']/div[2]")
+	WebElement GetAlertMessage;
+	
 	@FindBy(xpath = "//*[@role='alert']/li")
 	WebElement GetServerErrorMessage;
 	
@@ -319,7 +325,7 @@ public class TransactionPage extends BasePage {
 		return false;
 	}
 	
-	@Then("^Transaction - validation- Verify with Amount =7,988,888,888.")
+	@Then("^Transaction - validation- Verify with Amount.")
 	public boolean verifAmountvalidation(ExtentTest child) throws Throwable {
 		try {
 			actions.waitForElementToBeClickable(GetAmountErrorMessage, 6000);
@@ -351,5 +357,39 @@ public class TransactionPage extends BasePage {
 			return false;
 		}
 		return false;
+	}
+	
+	@Then("^Transaction - Transaction created successfully.")
+	public boolean verifTransactionCreatedSuccessfully(ExtentTest child) throws Throwable {
+		try {
+			actions.waitForElementToBeClickable(GetSuccessfullyMessage, 6000);
+			if (GetSuccessfullyMessage.isDisplayed()) {
+				String ActulResult = GetSuccessfullyMessage.getText();
+				String ActulAlert= GetSuccessfullyMessage.getText();
+				String ExpectedResult = "Transaction created successfully.";
+				String ExpectedResult1 = "Sorry! unable to process your request. Please contact administrator.";
+				if (ExpectedResult.trim().equals(ActulResult.trim())) {
+					actions.waitForElement(2000);
+					Reporter.log("Transaction -Valid Amount- Verify Transaction created successfully : - " + ActulResult);
+					child.log(LogStatus.INFO,"Transaction -Valid Amount- Verify Transaction created successfully : -" + ActulResult);
+				}
+				
+				else if (ExpectedResult1.trim().equals(ActulAlert.trim())) {
+					actions.waitForElement(2000);
+					Reporter.log("Transaction - Getting Error as : - " + ActulResult);
+					child.log(LogStatus.INFO,"Transaction - Getting Error as : -" + ActulResult);
+					return false;
+				}
+			} else {
+				Reporter.log("Error Message Not Display.");
+				child.log(LogStatus.INFO, "Error Message Not Display.");
+				return false;
+			}
+		} catch (NoSuchElementException e) {
+			Reporter.log("Error Message Not Display.");
+			child.log(LogStatus.INFO, "Error Message Not Display.");
+			return false;
+		}
+		return true;
 	}
 }
