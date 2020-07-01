@@ -24,6 +24,9 @@ public class TransactionPage extends BasePage {
 	@FindBy(xpath = "//*[@formcontrolname='amount']")
 	WebElement Amount;
 	
+	@FindBy(xpath = "//*[@formcontrolname='addenda']")
+	WebElement Addenda;
+	
 	@FindBy(xpath = "//a[text()='Bank Details']")
 	WebElement BankDetailsTab;
 	
@@ -45,8 +48,11 @@ public class TransactionPage extends BasePage {
 	@FindBy(xpath = "//*[@formcontrolname='check_image_front']")
 	WebElement CheckImageFront;
 
-	@FindBy(xpath = "//*[@formcontrolname='check_image_back']")
+	@FindBy(xpath = "//*[@id='backCheckImg']")
 	WebElement CheckImageBack;
+	
+	@FindBy(xpath = "//*[@formcontrolname='city']")
+	WebElement City;
 	
 	@FindBy(xpath = "//label[text()='Savings']/following::label[1]")
 	WebElement CheckingAccountType;
@@ -59,6 +65,9 @@ public class TransactionPage extends BasePage {
 	
 	@FindBy(xpath = "//*[@formcontrolname='id']")
 	WebElement ExistingCustomerDD;
+	
+	@FindBy(xpath = "//*[@formcontrolname='item_research_number']")
+	WebElement ItemResearchNumber ;
 	
 	@FindBy(xpath = "//*[@formcontrolname='standard_entry_class']")
 	WebElement StandardEntryClassDD;
@@ -84,6 +93,9 @@ public class TransactionPage extends BasePage {
 	@FindBy(xpath = "//label[text()='Savings']/following::label[2]")
 	WebElement LoanAccountType;
 
+	@FindBy(xpath = "//*[@formcontrolname='process_control_field']")
+	WebElement ProcessControl ;
+	
 	@FindBy(xpath = "//*[@formcontrolname='routing_number']")
 	WebElement RoutingNumber;
 
@@ -93,11 +105,23 @@ public class TransactionPage extends BasePage {
 	@FindBy(xpath = "//*[@class='savegreen']")
 	WebElement SubmitButton;
 	
+	@FindBy(xpath = "//*[@formcontrolname='state']")
+	WebElement State;
+	
 	@FindBy(xpath = "//*[@id='span_transactions']")
 	WebElement TransactionTab;
 	
-	
+	@FindBy(xpath = "//*[@formcontrolname='terminal_identification_code']")
+	WebElement TerminalIdentificationCode;
 
+	@FindBy(xpath = "//*[@formcontrolname='terminal_location']")
+	WebElement TerminalLocation;
+	
+	@FindBy(xpath = "//*[@formcontrolname='transaction_serial_number']")
+	WebElement TransactionSerialNumber;
+	
+	@FindBy(xpath = "//*[@formcontrolname='card_transaction_type_code']")
+	WebElement TransactionTypeCode;
 
 	public TransactionPage(WebDriver driver, AutoLogger handler) {
 		super(driver);
@@ -122,6 +146,15 @@ public class TransactionPage extends BasePage {
 		child.log(LogStatus.INFO, "Amount entered as:- " + Amounts);
 	}
 
+	@When("^Entered Addenda")
+	public void enterAddenda(String addenda, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(Addenda, 60);
+		actions.sendKeys(this.Addenda, addenda);
+		Reporter.log("Addenda entered as:- " + addenda);
+		child.log(LogStatus.INFO, "Addenda entered as:- " + addenda);
+	}	
+	
+	
 	@When("^Entered Bank Routing number ")
 	public void enterRoutingNumber(String Routing, ExtentTest child) throws Throwable {
 		actions.waitForElementToBeClickable(RoutingNumber, 60);
@@ -137,7 +170,23 @@ public class TransactionPage extends BasePage {
 		Reporter.log("Entered Email id as:- " + Emailid);
 		child.log(LogStatus.INFO, "Entered Email id as:- " + Emailid);
 	}
-
+	
+	@When("^Entered Item Research Number")
+	public void enterItemResearchNumber(String IRN, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(ItemResearchNumber, 60);
+		actions.sendKeys(this.ItemResearchNumber, IRN);
+		Reporter.log("Entered Item Research Number id as:- " + IRN);
+		child.log(LogStatus.INFO, "Entered Item Research Number id as:- " + IRN);
+	}
+	
+	@When("^Entered Process Control")
+	public void enterProcessControl(String IRN, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(ProcessControl, 60);
+		actions.sendKeys(this.ProcessControl, IRN);
+		Reporter.log("Entered Process Control id as:- " + IRN);
+		child.log(LogStatus.INFO, "Entered Process Control as:- " + IRN);
+	}
+	
 	@When("^Click on Savings Account Type")
 	public void clickOnSavingsAccountType(ExtentTest child) throws Throwable {
 		actions.waitForElementToBeClickable(SavingsAccountType, 60);
@@ -177,6 +226,23 @@ public class TransactionPage extends BasePage {
 		Reporter.log("Description entered as:- " + Des);
 		child.log(LogStatus.INFO, "Description entered as:-" + Des);
 	}
+	
+	@When("^Entered City")
+	public void enterCity(String city, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(City, 60);
+		actions.sendKeys(this.City, city);
+		Reporter.log("City entered as:- " + city);
+		child.log(LogStatus.INFO, "City entered as:-" + city);
+	}
+	
+	@When("^Entered State")
+	public void enterState(String state, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(State, 60);
+		actions.sendKeys(this.State, state);
+		Reporter.log("State entered as:- " + state);
+		child.log(LogStatus.INFO, "State entered as:-" + state);
+	}
+	
 
 	@When("^Click And Select Standard Entry Class")
 	public void clickAndSelectStandardEntryClassDD(String SSCType, ExtentTest child) throws Throwable {
@@ -193,6 +259,25 @@ public class TransactionPage extends BasePage {
 		Thread.sleep(3000);
 		Reporter.log("Selected Existing Customer as:- " + ExistingCustomer);
 		child.log(LogStatus.INFO, "Selected Existing Customer as:- " + ExistingCustomer);
+	}
+	
+	@When("^Click And Select Existing Customer")
+	public void clickAndSelectExistingCustomerDDIndex(String index, ExtentTest child) throws Throwable {
+		
+		try {
+		actions.waitForElementToBeClickable(ExistingCustomerDD, 60);
+		actions.selectDropdownByVisibleText(ExistingCustomerDD, index);
+		Thread.sleep(3000);
+		Reporter.log("Selected Existing Customer as:- " + index );
+		child.log(LogStatus.INFO, "Selected Existing Customer as:- " + index );
+		}
+		 catch (NoSuchElementException e) {
+			 actions.waitForElementToBeClickable(ExistingCustomerDD, 60);
+				actions.selectDropdownByIndex(ExistingCustomerDD, 1);
+				Thread.sleep(3000);
+				Reporter.log("Selected Existing Customer as:- " + index);
+				child.log(LogStatus.INFO, "Selected Existing Customer as:- " + index);
+			}
 	}
 
 	@When("^Click And Select Transaction Type field DD")
@@ -213,32 +298,72 @@ public class TransactionPage extends BasePage {
 
 	@When("^Click on Create Transaction Button.")
 	public void clickOnCreateTransactionButton(ExtentTest child) throws Throwable {
-		actions.waitForElementToBeClickable(CreateTransactionButton, 60);
+		try {
+		actions.waitForElementToBeClickable(CreateTransactionButton, 180);
 		CreateTransactionButton.click();
 		Reporter.log("Click on Create Transaction Button.");
 		child.log(LogStatus.INFO, "Click on Create Transaction Button.");
+		Thread.sleep(5000);
+		}
+		 catch (NoSuchElementException e) {
+				Reporter.log("Error No Such Element Exception.");
+				child.log(LogStatus.INFO, "Error No Such Element Exception.");
+			}
 	}
 
+	@When("^Entered Terminal Identification Code")
+	public void enterTerminalIdentificationCode(String CheckNum, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(TerminalIdentificationCode, 60);
+		actions.sendKeys(this.TerminalIdentificationCode, CheckNum);
+		Reporter.log("Terminal Identification Code entered as:- " + CheckNum);
+		child.log(LogStatus.INFO, "Terminal Identification Code entered as:-" + CheckNum);
+	}
+	
 	@When("^Entered Check Number")
-	public void enterNickName(String CheckNum, ExtentTest child) throws Throwable {
+	public void enterCheckNumber(String CheckNum, ExtentTest child) throws Throwable {
 		actions.waitForElementToBeClickable(CheckNumber, 60);
 		actions.sendKeys(this.CheckNumber, CheckNum);
 		Reporter.log("Check Number entered as:- " + CheckNum);
 		child.log(LogStatus.INFO, "Check Number entered as:-" + CheckNum);
 	}
 	
+	@When("^Entered Terminal Location")
+	public void enterTerminalLocation(String CheckNum, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(TerminalLocation, 60);
+		actions.sendKeys(this.TerminalLocation, CheckNum);
+		Reporter.log("Terminal Location entered as:- " + CheckNum);
+		child.log(LogStatus.INFO, "Terminal Location entered as:-" + CheckNum);
+	}
+	
+	@When("^Entered Transaction Serial Number")
+	public void enterTransactionSerialNumber(String CheckNum, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(TransactionSerialNumber, 60);
+		actions.sendKeys(this.TransactionSerialNumber, CheckNum);
+		Reporter.log("Transaction Serial Number entered as:- " + CheckNum);
+		child.log(LogStatus.INFO, "Transaction Serial Number entered as:-" + CheckNum);
+	}
+	@When("^Entered Transaction Type Code")
+	public void enterTransactionTypeCode(String CheckNum, ExtentTest child) throws Throwable {
+		actions.waitForElementToBeClickable(TransactionTypeCode, 60);
+		actions.sendKeys(this.TransactionTypeCode, CheckNum);
+		Reporter.log("Transaction Type Code entered as:- " + CheckNum);
+		child.log(LogStatus.INFO, "Transaction Type Code entered as:-" + CheckNum);
+	}
+	
 	@When("^Click and upload Check Image Front.")
-	public void clickOnCheckImageFront(ExtentTest child) throws Throwable {
-		actions.waitForElementToBeClickable(CheckImageFront, 60);
-		CheckImageFront.click();
+	public void clickOnCheckImageFront(String image ,ExtentTest child) throws Throwable {
+		Thread.sleep(2000);
+		CheckImageFront.sendKeys("D:\\VericheckPro\\Vericheck\\TestData\\" + image +".jpg");
+		Thread.sleep(2000);
 		Reporter.log("Click and upload Check Image Front.");
 		child.log(LogStatus.INFO, "Click and upload Check Image Front.");
 	}
 
 	@When("^Click and upload Check Image Back.")
-	public void clickOnCheckImageBack(ExtentTest child) throws Throwable {
-		actions.waitForElementToBeClickable(CheckImageBack, 60);
-		CheckImageBack.click();
+	public void clickOnCheckImageBack(String image, ExtentTest child) throws Throwable {
+		Thread.sleep(2000);
+		CheckImageBack.sendKeys("D:\\VericheckPro\\Vericheck\\TestData\\" + image +".jpg");
+		Thread.sleep(2000);
 		Reporter.log("Click and upload Check Image Back.");
 		child.log(LogStatus.INFO, "Click and upload Check Image Back.");
 	}
@@ -262,12 +387,18 @@ public class TransactionPage extends BasePage {
 	
 	@When("^Click on Transaction Tab")
 	public void clickOnTransactionTab(ExtentTest child) throws Throwable {
-		actions.waitForElementToBeClickable(TransactionTab, 6000);
+		try {
+		actions.waitForElementToBeClickable(TransactionTab, 60);
 		Thread.sleep(5000);
 		TransactionTab.click();
 		Reporter.log("Click on Transaction Tab.");
 		child.log(LogStatus.INFO, "Click on Transaction Tab.");
 		Thread.sleep(5000);
+		}
+		catch (NoSuchElementException e) {
+			Reporter.log("Error No Such Element Exception.");
+			child.log(LogStatus.INFO, "Error No Such Element Exception.");
+		}
 	}
 	
 	@Then("^Transaction - validation- Verify Amount is mandatory.")
